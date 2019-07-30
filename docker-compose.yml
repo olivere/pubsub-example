@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  # Google PubSub via Cloud SDK
+  pubsub:
+    image: google/cloud-sdk
+    command: gcloud beta emulators pubsub start --quiet --host-port=0.0.0.0:8086
+    environment:
+    - PUBSUB_PROJECT_ID=demo
+    ports:
+      - 8086:8086
+    expose:
+      - 8086
+  # NATS Streaming Server
+  nats:
+    image: nats-streaming:0.15.1
+    hostname: nats
+    command: ["-m", "8222", "-sc", "/nats/nats.conf"]
+    volumes:
+      - ./etc/nats.conf:/nats/nats.conf
+    ports:
+      - 4222:4222
+      - 8222:8222
