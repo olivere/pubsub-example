@@ -9,6 +9,8 @@ import (
 
 	stdgcppubsub "cloud.google.com/go/pubsub"
 	"gocloud.dev/pubsub"
+	_ "gocloud.dev/pubsub/awssnssqs"
+	_ "gocloud.dev/pubsub/azuresb"
 	_ "gocloud.dev/pubsub/gcppubsub"
 	_ "gocloud.dev/pubsub/kafkapubsub"
 	_ "gocloud.dev/pubsub/mempubsub"

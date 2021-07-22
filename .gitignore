@@ -2,17 +2,7 @@
 
 /data
 
-/gcp/pub
-/gcp/pub.exe
-/gcp/sub
-/gcp/sub.exe
-
-/gocloud/pub
-/gocloud/pub.exe
-/gocloud/sub
-/gocloud/sub.exe
-
-/nats/pub
-/nats/pub.exe
-/nats/sub
-/nats/sub.exe
+/*/pub
+/*/pub.exe
+/*/sub
+/*/sub.exe

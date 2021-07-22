@@ -6,7 +6,7 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/gofrs/uuid"
+	"github.com/google/uuid"
 	stan "github.com/nats-io/stan.go"
 )
 
@@ -22,7 +22,7 @@ func main() {
 	flag.Parse()
 
 	if *clientID == "" {
-		*clientID = uuid.Must(uuid.NewV4()).String()
+		*clientID = uuid.NewString()
 	}
 	if *topicName == "" {
 		log.Fatal("missing topic name; use -t to specify a topic name")

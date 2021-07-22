@@ -11,7 +11,7 @@ import (
 
 	"cloud.google.com/go/compute/metadata"
 	"cloud.google.com/go/pubsub"
-	"github.com/gofrs/uuid"
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -39,7 +39,7 @@ func main() {
 		log.Fatal("missing -t option for topic name")
 	}
 	if *subscriptionName == "" {
-		*subscriptionName = "sub-" + uuid.Must(uuid.NewV4()).String()
+		*subscriptionName = "sub-" + uuid.NewString()
 	}
 
 	// Connect to PubSub system

@@ -13,7 +13,7 @@ services:
       - 8086
   # NATS Streaming Server
   nats:
-    image: nats-streaming:0.15.1
+    image: nats-streaming:0.22
     hostname: nats
     command: ["-m", "8222", "-sc", "/nats/nats.conf"]
     volumes:
@@ -21,3 +21,12 @@ services:
     ports:
       - 4222:4222
       - 8222:8222
+  # Localstack for SNS/SQS
+  aws:
+    image: localstack/localstack:latest
+    hostname: aws
+    environment:
+    - SERVICES=sns,sqs
+    ports:
+      - 4566:4566
+      - 4571:4571
