@@ -17,24 +17,21 @@ Publish messages on the `messages` topic:
 ./pub -t messages
 ```
 
+Notice that publisher will try to create the topic if it doesn't already exist.
+
 ## Consumers
 
-Consumer with a random subscription name:
+Consumer that subscribes to publisher on topic `messages` as such:
 
 ```sh
 ./sub -t messages
 ```
 
-Consumer with a fixed subscription name:
-
-```sh
-./sub -t messages -s subscriber-1
-```
+Notice that consumer will try to create the topic if it doesn't already exist.
 
 ## Remarks
 
-1. When using a unique subscription name, every subscriber gets a copy of the
-   messages sent by the producer.
-2. When sharing a subscription name, messages get sent to only one subscriber.
-3. By default, subscribers receive only those messages sent after they've been
-   started.
+1. Notice that using SNS alone will only give us a one-to-one scenario:
+   One message gets relayed to exactly one of the subscribers, i.e. not
+   every subscriber gets a copy. You need to use SNS in combination with
+   SQS to get both (see `snssqs` parent directory).

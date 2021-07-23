@@ -2,31 +2,31 @@
 
 ## Prerequisites
 
-```
-$ export PUBSUB_EMULATOR_HOST=localhost:8086
-$ export PUBSUB_PROJECT_ID=demo
+```sh
+export PUBSUB_EMULATOR_HOST=localhost:8086
+export PUBSUB_PROJECT_ID=demo
 ```
 
 ## Publisher
 
 Publish messages on the `messages` topic:
 
-```
-$ ./pub -t messages
+```sh
+./pub -t messages
 ```
 
 ## Consumers
 
 Consumer with a random subscription name:
 
-```
-$ ./sub -t messages
+```sh
+./sub -t messages
 ```
 
 Consumer with a fixed subscription name:
 
-```
-$ ./sub -t messages -s subscriber-1
+```sh
+./sub -t messages -s subscriber-1
 ```
 
 ## Remarks

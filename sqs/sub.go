@@ -12,24 +12,19 @@ import (
 	"github.com/aws/aws-sdk-go/aws/endpoints"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/sqs"
-	"github.com/google/uuid"
 )
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	var (
-		topicName        = flag.String("t", "", "Topic name")
-		subscriptionName = flag.String("s", "", "Subscription name")
+		topicName = flag.String("t", "", "Topic name")
 	)
 	flag.Parse()
 
 	if *topicName == "" {
 		log.Fatal("missing topic name; " +
 			"use -t to specify topic name")
-	}
-	if *subscriptionName == "" {
-		*subscriptionName = "sub-" + uuid.NewString()
 	}
 
 	// Connect to PubSub system
