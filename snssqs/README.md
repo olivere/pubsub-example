@@ -92,8 +92,8 @@ Publish messages on the `messages` topic:
 Start two consumers the specific subscription/subscription name:
 
 ```sh
-./sub -t messages -s subscriber-1
-./sub -t messages -s subscriber-2
+./sub -s subscriber-1
+./sub -s subscriber-2
 ```
 
 ## Cleanup
